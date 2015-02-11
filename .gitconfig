@@ -1,0 +1,6 @@
+[diff]
+    tool = tkdiff
+[core]
+	editor = nedit
+[github]
+	user = amichay-doitch
