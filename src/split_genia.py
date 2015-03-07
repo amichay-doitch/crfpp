@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys, re
-INPUT = "../output/out_shaped.txt"
+INPUT = "../output_new/out_shaped.txtnew"
 
 def file2data(f):
     """
@@ -41,7 +41,7 @@ def check(pathToFile):
     for line in f.readlines():
         if line == "\n":
             continue
-        if len(line.split(" ")) != 4:
+        if len(line.split(" ")) != 3:
             print "bad line found: {0}".format(line)
 
 
@@ -54,9 +54,9 @@ def main():
     test = data[0:testSize]
     develop = data[testSize:2*testSize]
     train = data[2*testSize:]
-    testPath = "../output/genia_test.txt"
-    developPath = "../output/genia_develop.txt"
-    trainPath = "../output/genia_train.txt"
+    testPath = "../output_new/genia_test.txt"
+    developPath = "../output_new/genia_develop.txt"
+    trainPath = "../output_new/genia_train.txt"
     write_data_to_path(test, testPath)
     write_data_to_path(develop, developPath)
     write_data_to_path(train, trainPath)

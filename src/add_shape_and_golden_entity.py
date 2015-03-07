@@ -49,7 +49,7 @@ def add_shape_to_data(data):
             word = line.split()[0]
             tag = line.split()[1]
             wordShape = word_shape(word)
-            sentenceShaped.append((" ".join((word, tag, wordShape, tag))))
+            sentenceShaped.append((" ".join((word, wordShape, tag))))
         shaped_data.append(sentenceShaped)
         sentenceShaped = []
     return shaped_data
