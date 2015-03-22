@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Regression Results </title>
+    <style type="text/css">
+        {% include "default.css" %}
+    </style>
+        
+
+</head>
+<body>
+    <div class="container">        
+        <div> 
+            <h1> Regression Results </h1>
+            <h2> Repository clone directory:
+                <p> {{ repo_location }} </p>
+            </h2>            
+            <h3> Results - Summary </h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> Test </th>
+                        <th> Status </th>
+                        <th> Log </th>
+                    </tr>            
+                </thead>
+                <tbody>
+                {% for row in summary %}
+                    <tr>
+                        <td> {{ row[0] }} </td>
+                        {% if row[1].lower() == "failed" %}
+                        <td bgcolor="#FF0000"> {{ row[1] }} </td>
+                        {% elif row[1].lower() == "aborted" %}
+                        <td bgcolor="#ffa500"> {{ row[1] }} </td>
+                        {% else %}
+                        <td> {{ row[1] }} </td>
+                        {% endif %}
+                        <td> {{ row[2] }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>            
+            </table>            
+        </div>
+        <br/>
+        <br/>
+        <div>
+            <h3> GIT Information - Last {{ hours }} hours </h3>
+            <table class="table">
+                <col style="width:5%">
+                <col style="width:15%">
+                <col style="width:10%">
+                <col style="width:35%">
+                <col style="width:35%">
+                <thead>
+                    <tr>
+                        <th> Commit </th>
+                        <th> Date </th>
+                        <th> Owner </th>
+                        <th> Description </th>
+                        <th> Files </th>
+                    </tr>            
+                </thead>
+                <tbody>
+                {% for row in infos %}
+                    <tr valign="top">
+                        <td> {{ row[0] }} </td>
+                        <td> {{ row[1] }} </td>
+                        <td> {{ row[2] }} </td>
+                        <td> {{ row[3] }} </td>
+                        <td> {{ row[4] }} </td> 
+                    </tr>
+                {% endfor %}
+                </tbody>            
+            </table>
+        </div>
+    </div>
+</body>
+</html>
